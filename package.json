@@ -1,0 +1,18 @@
+{
+  "name": "solana-token-projekt",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "create:wallet": "node src/createWallet.js",
+    "create:mint": "node src/createMint.js",
+    "set:metadata": "node src/setMetadata.js",
+    "mint:tokens": "node src/mintTokens.js"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.98.4",
+    "@solana/spl-token": "^0.4.14",
+    "@metaplex-foundation/js": "^0.19.7",
+    "@metaplex-foundation/mpl-token-metadata": "^2.10.2"
+  }
+}
