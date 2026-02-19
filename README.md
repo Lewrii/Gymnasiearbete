@@ -5,8 +5,9 @@ En simpel strukturerad guide till att skapa sin egna token på Solanas devnet.
 ## Steg och filer
 Vad dom olika filerna gör.
 1. `src/createWallet.js` – Skapar plånbok och airdroppar SOL.
-2. `src/createMint.js` – Skapar token-mint och sparar adress i `mint.json`.
-3. `metadata.json` – Lokal fil med metadata (name, symbol, description, image) Denna fil behövs läggas up till en url för att kunna användas i `src/setMetadata.js`
+2. `src/balance.js` - (optional) Låter dig se hur mycket SOL din wallet har.
+3. `src/createMint.js` – Skapar token-mint och sparar adress i `mint.json`.
+4. `metadata.json` – Lokal fil med metadata (name, symbol, description, image) Denna fil behövs läggas up till en url för att kunna användas i `src/setMetadata.js`
 5. `src/setMetadata.js` – Kopplar hostad metadata till mint via Metaplex programmet.
 6. `src/mintTokens.js` – Mintar valfri mängd tokens till din wallet.
 
@@ -52,4 +53,3 @@ Jag har bara använt mig av Solanas directory i node_modules bibloteket
 ## Säkerhet
 - För säkerhet ska man aldrig dela innehållet i sin `wallet.json` offentligt då det kan leda till att man får tillgång till din wallet.
 - Ska man köra det här på mainnet behöver man hantera nycklar och avgifter mycket nogrannare.
-

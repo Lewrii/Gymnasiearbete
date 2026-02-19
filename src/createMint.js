@@ -7,7 +7,7 @@ import { loadWallet } from './utils.js';
 const DECIMALS = 6; 
 
 async function main() {
-  const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
+  const connection = new Connection('https://devnet.helius-rpc.com/?api-key=93ac7725-6222-4e1b-8ef6-b5e6b29a2385', 'confirmed');
   const wallet = loadWallet();
 
   // Skapar en mint där plånbokne är både mint authority och freeze authority.

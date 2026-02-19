@@ -5,21 +5,18 @@ import fs from 'fs';
 
 async function main() {
   const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
-  // Skapar en ny plånbok
+  // Skapar en ny plånbok (pubkey, privkey)
   const wallet = Keypair.generate();
 
-  // Skriver den hemliga nyckeln till filen
+  // Skriver den hemliga nyckeln till wallet.json
   fs.writeFileSync('wallet.json', JSON.stringify(Array.from(wallet.secretKey)));
 
-  console.log('Ny plånbok skapad. Publik nyckel:', wallet.publicKey.toBase58());
-  console.log('Airdrop begärs (1 SOL)...');
-
-  const sig = await connection.requestAirdrop(wallet.publicKey, LAMPORTS_PER_SOL);
-  await connection.confirmTransaction(sig, 'confirmed');
-
-  const balance = await connection.getBalance(wallet.publicKey);
-  console.log('Saldo efter airdrop (lamports):', balance);
-  console.log('Klart. Spara wallet.json säkert.');
+  console.log('Du har nu skapat din nya plånbok. Publik nyckel:', wallet.publicKey.toBase58());
+  console.log('\nDu behöver göra en airdrop manuellt:');
+  console.log('1. Gå till https://faucet.solana.com');
+  console.log('2. Klistra in din publika nyckel ovan och välj 0.5 i "AMOUNT"');
+  console.log('3. Klicka på "Airdrop" för att få SOL på devnet');
+  console.log('Klart! Spara wallet.json säkert.');
 }
 
 main().catch(err => {

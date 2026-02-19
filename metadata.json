@@ -1,8 +1,8 @@
+
 {
   "name": "GymnasieToken",
   "symbol": "GAT",
-  "description": "En enkel testtoken på Solanas devnet.",
-  "image": "https://example.com/token-image.png"
+  "description": "En enkel testtoken på Solanas testnet.",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWRWnwvFxGNpIEQOhP6BlprNv3SsZ-qnDx4g&s"
 }
-
 

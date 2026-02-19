@@ -8,20 +8,21 @@ import { loadWallet } from './utils.js';
 const AMOUNT_WHOLE = 1000; // Kan ändras efter behov
 
 function getMintInfo() {
-  if (!fs.existsSync('mint.json')) throw new Error('mint.json saknas. Kör createMint.js först.');
+  if (!fs.existsSync('mint.json')) 
+    throw new Error('mint.json saknas. Kör createMint.js först.');
   const data = JSON.parse(fs.readFileSync('mint.json', 'utf8'));
   return { mint: new PublicKey(data.mint), decimals: data.decimals };
 }
 
 async function main() {
-  const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
+  const connection = new Connection('https://devnet.helius-rpc.com/?api-key=93ac7725-6222-4e1b-8ef6-b5e6b29a2385', 'confirmed');
   const wallet = loadWallet();
   const { mint, decimals } = getMintInfo();
 
   // Räknar om till dom "minsta enheterna" (lamports-liknande för token)
   const amountRaw = BigInt(AMOUNT_WHOLE) * BigInt(10 ** decimals);
 
-  // Hämtar eller skapa associated token account för plånboken
+  // Hämtar eller skapar associated token account för plånboken
   const ata = await getOrCreateAssociatedTokenAccount(
     connection,
     wallet,
@@ -39,7 +40,7 @@ async function main() {
   );
 
   console.log(`Mintade ${AMOUNT_WHOLE} tokens (rå mängd: ${amountRaw}) till`, ata.address.toBase58());
-  console.log('Transaktion:', signature);
+  console.log(`Du kan se din token här: https://explorer.solana.com/tx/${signature}?cluster=devnet`)
 }
 
 main().catch(err => console.error('Fel:', err));
