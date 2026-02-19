@@ -13,7 +13,7 @@ Vad dom olika filerna gör.
 
 ## I metadata så måste det vara en giltig URL som pekar på en bildfil och inte en fil på din dator
 
-Installera beroenden (behövs bara göra en gång):
+Installera beroenden (behövs bara göra en gång och kan ta en stund vänta på output från terminal):
 bash
     npm install
 
