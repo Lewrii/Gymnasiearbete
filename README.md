@@ -40,16 +40,17 @@ bash
     npm run mint:tokens
 
 ## Korta förklaring på vad olika saker betyder
+- Bash: Är språket som dom flesta terminalerna använder. Kör du det här på windows rekommenderar jag att använda powershells terminal då guiden är gjord för powershell.
 - Wallet: Nyckelpar som används för signering och avgifter.
-- Mint: Själva token-definitionen (decimals, authority).
+- Mint: Själva processen man gör för att skapa nya tokens och få dom ut på ekosystemet.
 - Metadata: Standardiserad info som kan visas i wallets (namn, symbol, bild).
-- Associated Token Account: Specifikt konto som håller saldo av  token för din plånbok.
+- Associated Token Account: Specifikt konto som håller saldot av tokenen för din plånbok.
 - Airdrop: Solana utdelats till din plånbok gratis för att användas och testa ditt/dina projekt med
 - PDA: innebär att en privata nyckeln till adressen inte styrs av en wallet utan ett program på solana.
 
 ## Devnet
 Allt körs på devnet med hjälp av (`clusterApiUrl('devnet')`), det är inga riktiga värden utan bara till för att developa.
-Jag har bara använt mig av Solanas directory i node_modules bibloteket
+Jag har bara använt mig av Solanas directory i node_modules bibloteket. All information som hämtas från nätverket görs via helius. Just nu används min API nyckel för att hämta information.
 ## Säkerhet
 - För säkerhet ska man aldrig dela innehållet i sin `wallet.json` offentligt då det kan leda till att man får tillgång till din wallet.
 - Ska man köra det här på mainnet behöver man hantera nycklar och avgifter mycket nogrannare.
